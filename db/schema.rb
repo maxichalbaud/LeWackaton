@@ -10,10 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_08_164947) do
+ActiveRecord::Schema.define(version: 2020_08_08_170511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "video"
+    t.string "image"
+    t.bigint "company_id"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_courses_on_company_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.bigint "course_id"
+    t.string "assignment"
+    t.boolean "correct_answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_questions_on_course_id"
+  end
+
+  create_table "user_answers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "question_id"
+    t.boolean "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_user_answers_on_question_id"
+    t.index ["user_id"], name: "index_user_answers_on_user_id"
+  end
+
+  create_table "user_courses", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "course_id"
+    t.string "status"
+    t.decimal "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_user_courses_on_course_id"
+    t.index ["user_id"], name: "index_user_courses_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +72,17 @@ ActiveRecord::Schema.define(version: 2020_08_08_164947) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "courses", "companies"
+  add_foreign_key "questions", "courses"
+  add_foreign_key "user_answers", "questions"
+  add_foreign_key "user_answers", "users"
+  add_foreign_key "user_courses", "courses"
+  add_foreign_key "user_courses", "users"
 end
