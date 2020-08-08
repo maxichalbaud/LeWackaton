@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Company.create(name: "IBM")
-Company.create(name: "Globant")
-Company.create(name: "Auth0")
+Company.create(name: "IBM", image: "https://tentulogo.com/wp-content/uploads/IBM-logo-FB.jpg")
+Company.create(name: "Globant", image: "https://emprendedoresnews.com/wp-content/uploads/2020/01/company_5d7c04ad08a25a53fd4d5987.png")
+Company.create(name: "Auth0", image: "https://cms-assets.tutsplus.com/uploads/users/769/posts/31134/preview_image/auth0.png")
 
-Course.create(title: "Data Science", company: Company.find_by(name:"IBM"))
-Course.create(title: "Data Science", company: Company.find_by(name:"Globant"))
-Course.create(title: "Data Science", company: Company.find_by(name:"Auth0"))
+Course.create(title: "Data Science", company: Company.find_by(name:"IBM"), category: 1)
+Course.create(title: "Data Science", company: Company.find_by(name:"Globant"), category: 1)
+Course.create(title: "Data Science", company: Company.find_by(name:"Auth0"), category: 1)
