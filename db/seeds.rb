@@ -1,3 +1,4 @@
+require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -13,3 +14,13 @@ Company.create(name: "Auth0", image: "https://cms-assets.tutsplus.com/uploads/us
 Course.create(title: "Data Science", company: Company.find_by(name:"IBM"), category: 1)
 Course.create(title: "Data Science", company: Company.find_by(name:"Globant"), category: 1)
 Course.create(title: "Data Science", company: Company.find_by(name:"Auth0"), category: 1)
+Course.create(title: "Data Science", company: Company.find_by(name:"Auth0"), category: 2)
+Course.create(title: "Data Science", company: Company.find_by(name:"Auth0"), category: 2)
+Course.create(title: "Data Science", company: Company.find_by(name:"Auth0"), category: 2)
+Course.create(title: "Data Science", company: Company.find_by(name:"Auth0"), category: 3)
+Course.create(title: "Data Science", company: Company.find_by(name:"Auth0"), category: 3)
+Course.create(title: "Data Science", company: Company.find_by(name:"Auth0"), category: 3)
+
+15.times do
+  Question.create(course: Course.all.sample, assignment: Faker::TvShows::TheExpanse.quote, correct_answer: [true, false].sample)
+end

@@ -13,6 +13,10 @@ class CoursesController < ApplicationController
 
   def show
     @enrollement = UserCourse.new
+    @questions = @course.questions
+    if current_user.courses.include?(@course)
+      @user_course = UserCourse.find_by(user: current_user, course: @course)
+    end
   end
 
   private

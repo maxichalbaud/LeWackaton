@@ -1,0 +1,12 @@
+<%= simple_form_for([@course, @user_course]) do |f| %>
+  <% @questions.each do |question| %>
+    <li><%= question.assignment %></li>
+    <input id="<%=question.id%>"type="radio" name="user_answers[<%= question.id %>]" value="true" />
+    <label class="collection_radio_buttons" for="user_options_true">True</label>
+    <input id="<%=question.id%>"type="radio" name="user_answers[<%= question.id %>]" value="false" />
+    <label class="collection_radio_buttons" for="user_options_false">False</label>
+  <% end %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= console %>
