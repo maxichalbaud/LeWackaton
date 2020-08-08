@@ -6,7 +6,7 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.string :video
       t.string :image
       t.references :company, foreign_key: true
-      t.string :category
+      t.integer :category
 
       t.timestamps
     end
