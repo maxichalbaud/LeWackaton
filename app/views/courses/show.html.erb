@@ -1,7 +1,7 @@
 <% if @user_course && @user_course.id.nil? %>
   <%= render "not-enrolled", course: @course, enrollement: @user_course %>
 <% elsif @user_course && @user_course.finished? %>
-  <%= render "finished-project" %>
+  <%= render "finished-project", course: @course %>
 <% elsif @user_course && @user_course.project_completed? %>
   <%= render "waiting-for-feedback" %>
 <% elsif @user_course && @user_course.questions_completed? %>
