@@ -3,18 +3,21 @@
     <%= image_tag "dashboard.svg" %>
     <%= link_to "Dashboard", users_path, class: 'flex-grow-1 p-0 m-0 ml-1' %>
   </li>
+  <hr>
   <li class='d-flex justify-content-around align-items-center'>
     <%= image_tag "favorite.svg" %>
     <%= link_to "Favoritos", '#', class: 'flex-grow-1 p-0 m-0 ml-1' %>
   </li>
+    <hr>
   <li class='d-flex justify-content-around align-items-center'>
     <%= image_tag "course.svg" %>
     <%= link_to "Mis cursos", users_path, class: 'flex-grow-1 p-0 m-0 ml-1' %>
   </li>
+    <hr>
   <li class='d-flex justify-content-around align-items-center'>
     <%= image_tag "settings.svg" %>
     <%= link_to "Configuración", edit_user_registration_path, class: 'flex-grow-1 p-0 m-0 ml-1' %>
   </li>
 </ul>
 
-<button class="sign-out btn btn-primary">Cerrar Sesion</button>
+<button class="sign-out btn btn-light">Cerrar Sesion</button>

@@ -2,16 +2,21 @@
   .card-main {
     height: 352px;
     background-color: rgba(0, 0, 0, 0.3);
+    background-image: url(banner.jpg);
+    background-size: cover;
+    object-fit: cover;
     position: relative;
     border-radius: 16px;
     .main-header {
       color: #FFFFFF;
+      font-weight: 900;
       font-family: 'Roboto', sans-serif;
       font-size: 40px;
       position: absolute;
       top: 116px;
       left: 36px;
       padding-right: 40%;
+      box-shadow: 10px 10px 10px rgba(0,0,0,0.1)
     }
   }
   .card-sm {
@@ -26,5 +31,11 @@
         width: 80%;
       }
     }
+  }
+}
+
+.company {
+  a {
+    text-decoration: none !important;
   }
 }

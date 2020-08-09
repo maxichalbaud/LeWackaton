@@ -1,8 +1,7 @@
 <div class="cards my-3">
   <% @companies.each do |company| %>
     <%= link_to company do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= company.image %>)">
-        <%= company.name %>
+      <div class="card-category" style="background-image: url(<%= company.image %>)">
       </div>
     <% end %>
   <% end %>

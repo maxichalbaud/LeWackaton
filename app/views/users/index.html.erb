@@ -7,20 +7,20 @@
       <div class="row">
         <div class="col-12">
           <div class="card-course">
-            <%= link_to course_path(user_course.course) do %>
               <div class="d-flex">
                 <div class="img-course">
                   <img src="https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="course.image">
                 </div>
-                <div class="content-course ml-3">
+                <div class="content-course ml-3 mb-3">
                   <h3><%= user_course.course.title %></h3>
-                  <p><%= user_course.course.description %></p>
+                  <p class="mb-3"><%= user_course.course.description %></p>
                 </div>
-                <div class="status-course">
-                  <p class="m-0"><%= user_course.status %></p>
-                </div>
+                <%= link_to course_path(user_course.course) do %>
+                  <div class="status-course mt-3">
+                    <p class="m-0"><%= user_course_status(user_course.status) %></p>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
           </div>
         </div>
       </div>

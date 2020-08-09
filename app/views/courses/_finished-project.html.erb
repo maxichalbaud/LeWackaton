@@ -1,4 +1,4 @@
-<h2>Congratulations! You've succesfully completed this course!</h2>
+<h2>¡Felicitaciones! ¡Completaste este curso!</h2>
 <%= link_to certificate_path(current_user.certificates.where(course: @course).first, format: :pdf) do %>
-<h3>Access to your certificate!</h3>
+<h3>¡Descargá tu certificado!</h3>
 <% end %>

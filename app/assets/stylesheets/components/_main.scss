@@ -1,8 +1,14 @@
+a {
+  text-decoration: none !important;
+}
+
 * {
     font-family: 'Abel', sans-serif;
+    text-decoration: none !important;
 }
 .main {
   flex-grow: 1;
+  padding-left: 230px;
 }
 
 h1 {
