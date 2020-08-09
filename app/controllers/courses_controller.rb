@@ -12,7 +12,8 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @enrollement = UserCourse.new
+    @questions = @course.questions
+    @user_course = current_user.user_courses.where(course: @course).first_or_initialize
   end
 
   private

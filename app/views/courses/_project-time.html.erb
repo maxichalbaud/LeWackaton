@@ -1,0 +1,15 @@
+  <p>
+    Your questions result is: <%= user_course.score.to_f %>%
+  </p>
+  <p>
+    Now it's time to complete the project... Are you ready? Here's your assignment:
+  </p>
+  <p>
+    <%= course.project %>
+  </p>
+
+<%= simple_form_for([course, user_course]) do |f| %>
+  <%= f.input :file, as: :file %>
+  <%= f.input :status, as: :hidden, input_html: {value: "project_completed"} %>
+  <%= f.submit %>
+<% end %>
