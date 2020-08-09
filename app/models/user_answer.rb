@@ -11,6 +11,6 @@ class UserAnswer < ApplicationRecord
       answer.save
     end
 
-    user_course.update(score: sum)
+    user_course.update(score: sum * 100 / params.keys.length)
   end
 end

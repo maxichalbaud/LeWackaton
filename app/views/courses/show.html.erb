@@ -1,5 +1,5 @@
-<% if @user_course.nil? %>
-  <%= render "not-enrolled", course: @course, enrollement: @enrollement %>
+<% if @user_course.id.nil? %>
+  <%= render "not-enrolled", course: @course, enrollement: @user_course %>
 <% elsif @user_course.finished? %>
   <%= render "finished-project" %>
 <% elsif @user_course.project_completed? %>
