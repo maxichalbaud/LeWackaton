@@ -1,5 +1,14 @@
 .certificate {
-  width: 500px;
+  width: 800px;
   margin: auto;
-  background-color: red;
+  border: 4px solid rgba(65, 131, 215, 0.5);
+  padding: 36px;
+  border-radius: 12px;
+  text-align: center;
+  font-family:  sans-serif;
+}
+
+img {
+  height: 100px;
+  margin: auto;
 }
