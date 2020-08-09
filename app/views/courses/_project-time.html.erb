@@ -1,15 +1,19 @@
+<div class="project px-3 mx-3">
+
+  <h2>¡Felicitaciones! Ya terminaste la primera etapa.</h2>
+  <h3>
+    El resultado de tu cuestionario es: <%= user_course.score.to_f %>%
+  </h3>
   <p>
-    Your questions result is: <%= user_course.score.to_f %>%
-  </p>
-  <p>
-    Now it's time to complete the project... Are you ready? Here's your assignment:
+    Ahora es el momento de completar el proyecto final. ¿Estás listo? Esta es la consigna:
   </p>
   <p>
     <%= course.project %>
   </p>
 
-<%= simple_form_for([course, user_course]) do |f| %>
-  <%= f.input :file, as: :file %>
-  <%= f.input :status, as: :hidden, input_html: {value: "project_completed"} %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for([course, user_course]) do |f| %>
+    <%= f.input :file, as: :file, class: 'form-control-file' %>
+    <%= f.input :status, as: :hidden, input_html: {value: "project_completed"} %>
+    <%= f.submit "Upload", class: 'btn btn-primary' %>
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+<div class="cards my-3">
+  <% @categories.each do |category| %>
+    <%= link_to "courses?category=#{category}" do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= category.gsub("_", " ").capitalize %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
