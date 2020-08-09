@@ -12,11 +12,8 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @enrollement = UserCourse.new
     @questions = @course.questions
-    if current_user.courses.include?(@course)
-      @user_course = UserCourse.find_by(user: current_user, course: @course)
-    end
+    @user_course = current_user.user_courses.where(course: @course).first_or_initialize
   end
 
   private
