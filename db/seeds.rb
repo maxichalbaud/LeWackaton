@@ -79,7 +79,7 @@ Course.create!(company: ibm, category: 'product_management', title: 'Become a SC
 
 
 15.times do
-  Course.create!(title: Faker::ProgrammingLanguage.name, company: Company.all.sample, category:[1,2,3].sample)
+  Course.create!(title: Faker::ProgrammingLanguage.name, company: Company.where.not(name:"IBM").sample, category:[1,2,3].sample, image: "https://static.thenounproject.com/png/340719-200.png")
 end
 
 #Questions
