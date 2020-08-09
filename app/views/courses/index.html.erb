@@ -1,3 +1,12 @@
+<h2><%= params[:category].gsub("_", " ").capitalize %></h2>
 <% @courses.each do |course| %>
-<%= link_to course.title, course %>
+  <%= link_to course do %>
+    <div class="card-product my-3">
+      <img src="<%= course.image %>" />
+      <div class="card-product-infos">
+        <h2><%= course.title %></h2>
+        <p><% course.description %></p>
+      </div>
+    </div>
+  <% end %>
 <% end %>

@@ -1,0 +1,30 @@
+.landing {
+  .card-main {
+    height: 352px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative;
+    border-radius: 16px;
+    .main-header {
+      color: #FFFFFF;
+      font-family: 'Roboto', sans-serif;
+      font-size: 40px;
+      position: absolute;
+      top: 116px;
+      left: 36px;
+      padding-right: 40%;
+    }
+  }
+  .card-sm {
+    height: 326px;
+    border-radius: 16px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(111, 111, 111, 0.25);
+    .company-img {
+      height: 280px;
+      padding: 0 20px;
+      img {
+        width: 80%;
+      }
+    }
+  }
+}
