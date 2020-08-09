@@ -1,5 +1,19 @@
-<%= @company.name %>
+<div class="company px-5 mx-5">
 
-<% @courses.each do |course| %>
-<%= course.title %>
-<% end %>
+  <h2>
+    <%= @company.name %>
+  </h2>
+
+  <% @courses.each do |course| %>
+    <%= link_to course do %>
+      <div class="card-product my-3">
+        <img src="<%= course.image %>" />
+        <div class="card-product-infos">
+          <h2><%= course.title %></h2>
+          <p><% course.description %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>

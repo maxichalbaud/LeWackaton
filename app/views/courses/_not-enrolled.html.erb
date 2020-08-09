@@ -1,12 +1,17 @@
-<div class="not-enrolled d-flex bg-light p-3">
-  <img src="<%= course.image %>" alt="" class="course-image mr-3">
-  <p class="course-description px-5 mx-3 align-self-center">
-    <%= course.description %>
-  </p>
+<div class="not-enrolled">
+  <div class="d-flex bg-light p-3 mb-3">
+    <img src="<%= course.image %>" alt="" class="course-image mr-3">
+    <p class="course-description px-5 mx-3 align-self-center">
+      <%= course.description %>
+    </p>
+  </div>
+
+<div class="d-flex justify-content-center">
+  <% if user_signed_in? %>
+    <%= simple_form_for([course, enrollement]) do |f| %>
+      <%= f.button :submit, 'Enroll', class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
 </div>
 
-<% if user_signed_in? %>
-  <%= simple_form_for([course, enrollement]) do |f| %>
-    <%= f.button :submit, 'Enroll', class: "btn btn-primary" %>
-  <% end %>
-<% end %>
+</div>
