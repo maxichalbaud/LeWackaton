@@ -1,7 +1,7 @@
 <% if @user_course.nil? %>
   <%= render "not-enrolled", course: @course, enrollement: @enrollement %>
-<% elsif !@user_course.status.nil? %>
-  Your result is: xxx
+<% elsif @user_course.questions_completed? %>
+  Your result is: <%= @user_course.score.to_f %>
 <% else %>
   <%= render "enrolled", course: @course %>
 <% end %>

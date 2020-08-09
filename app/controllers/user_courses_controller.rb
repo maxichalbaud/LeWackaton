@@ -16,8 +16,8 @@ class UserCoursesController < ApplicationController
     @user_course = UserCourse.find(params[:id])
     user_course_params
     # raise
-    UserAnswer.generate_course_answers(params["user_answers"], current_user.id)
-    @user_course.status = "questions_completed"
+    UserAnswer.generate_course_answers(params["user_answers"], current_user.id, @user_course)
+    @user_course.status = 1
     if @user_course.save
       redirect_to @course
     end
