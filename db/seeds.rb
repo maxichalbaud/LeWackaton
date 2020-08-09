@@ -53,6 +53,6 @@ end
 
 #User courses
 puts "Creating user courses"
-UserCourses.create!(user: pedro, course: ibm_data_sci, status: 'pending')
+UserCourse.create!(user: pedro, course: ibm_data_sci, status: 'pending')
 
 
