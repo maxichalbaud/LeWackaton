@@ -1,4 +1,3 @@
-
 .not-enrolled {
   p {
     font-size: 24px;
@@ -9,9 +8,21 @@
     object-fit: cover;
     border-radius: 12px;
   }
+
+  .course-title {
+    font-size: 20px;
+  }
+
+  .course-description {
+    font-size: 16px;
+  }
 }
 
 .enrolled {
+  .quiz-title {
+    font-size: 20px;
+  }
+
   .course-video {
     display: flex;
     justify-content: center;

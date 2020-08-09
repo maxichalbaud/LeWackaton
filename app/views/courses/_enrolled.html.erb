@@ -1,4 +1,17 @@
 <div class="enrolled p-3 mx-3">
+  <div class="content-header">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="mb-3 text-dark"><%= @user_course.course.title %></h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="<%= root_path %>">Home</a></li>
+          <li class="breadcrumb-item active">Cursos</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div>
   <div class="course-video mb-3 pb-3">
     <iframe
       width="560"
@@ -10,23 +23,40 @@
     </iframe>
   </div>
 
-  <div class="questions mx-5 px-5">
-    <%= simple_form_for([@course, @user_course]) do |f| %>
-      <% @questions.each do |question| %>
-        <li class="mb-3"><%= question.assignment %></li>
+  <!-- TO DO List -->
+  <div class="card">
+    <div class="card-header">
+      <h3 class="quiz-title m-0 p-0">
+        <i class="fas fa-edit"></i>
+        Quiz
+      </h3>
 
-        <div class="form-check">
-        <input id="<%=question.id%>"type="radio" name="user_answers[<%= question.id %>]" value="true" class="form-check-input"  />
-        <label class="collection_radio_buttons" for="user_options_true" class="form-check-label">True</label>
+
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <ul class="todo-list" data-widget="todo-list">
+
+        <div class="questions mx-5 px-5">
+          <%= simple_form_for([@course, @user_course]) do |f| %>
+            <% @questions.each do |question| %>
+              <li>
+                <li class="mb-3"><%= question.assignment %></li>
+
+                <div class="form-check">
+                  <input id="<%=question.id%>"type="radio" name="user_answers[<%= question.id %>]" value="true" class="form-check-input"  />
+                  <label class="collection_radio_buttons" for="user_options_true" class="form-check-label">True</label>
+                </div>
+                <div class="form-check">
+                  <input id="<%=question.id%>"type="radio" name="user_answers[<%= question.id %>]" value="false" class="form-check-input" />
+                  <label class="collection_radio_buttons" for="user_options_false" class="form-check-label">False</label>
+                </div>
+                <hr>
+
+              </li>
+            <% end %>
+            <%= f.input :status, as: :hidden, input_html: {value: "questions_completed"} %>
+            <%= f.button :submit, "Send!", class:'btn btn-primary' %>
+          <% end %>
         </div>
-        <div class="form-check">
-        <input id="<%=question.id%>"type="radio" name="user_answers[<%= question.id %>]" value="false" class="form-check-input" />
-        <label class="collection_radio_buttons" for="user_options_false" class="form-check-label">False</label>
-        </div>
-        <hr>
-      <% end %>
-      <%= f.input :status, as: :hidden, input_html: {value: "questions_completed"} %>
-      <%= f.button :submit, "Send!", class:'btn btn-primary' %>
-    <% end %>
-  </div>
 </div>
