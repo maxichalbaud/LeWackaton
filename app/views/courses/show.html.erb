@@ -1,3 +1,7 @@
-      <%= simple_form_for([@course, @enrollement]) do |f| %>
-        <%= f.button :submit, 'Enroll', class: "btn btn-primary" %>
-      <% end %>
+<% if @user_course.nil? %>
+  <%= render "not-enrolled", course: @course, enrollement: @enrollement %>
+<% elsif !@user_course.status.nil? %>
+  Your result is: xxx
+<% else %>
+  <%= render "enrolled", course: @course %>
+<% end %>
