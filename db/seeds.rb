@@ -32,18 +32,27 @@ puts "Creating courses"
 
 #Data Science
 ## Cursos IBM
-Course.create!(title: "Data Science", company: ibm, category: 'data_science', title: "IBM Data Science", description: "Kickstart your career in data science & ML. Master data science, learn Python & SQL, analyze & visualize data, build machine learning models.", image: 'https://i.pinimg.com/originals/7d/f5/84/7df58491c7f21e09d4b6b5f4df5d2bba.jpg', video: "https://www.youtube.com/watch?v=Bcwd7kmJjHo")
+ibm_data_sci = Course.create!(company: ibm, category: 'data_science', title: "IBM Data Science", description: "Kickstart your career in data science & ML. Master data science, learn Python & SQL, analyze & visualize data, build machine learning models.", image: 'https://i.pinimg.com/originals/7d/f5/84/7df58491c7f21e09d4b6b5f4df5d2bba.jpg', video: "https://www.youtube.com/watch?v=Bcwd7kmJjHo")
 ## Cursos Globant
-Course.create!(title: "Data Science", company: globant, category: 'data_science', title: 'Data Science - Globant Academy', description: "This is the era of big data. Advances in microelectronics and computer technology make it easier to collect and store huge amounts of data that comes in with great velocity. These days we can easily gather information and measurements that only a few years ago were too expensive to obtain. Over the next decade, a key factor which will decide whether companies succeed or fall behind will be whether they are able to turn their data into insights and actions.", image: 'https://blog.educacionit.com/wp-content/uploads/2019/04/blog-educacionit-12.jpg', video: 'https://www.youtube.com/watch?v=UY7TYoxI-b4')
+Course.create!(company: globant, category: 'data_science', title: 'Data Science - Globant Academy', description: "This is the era of big data. Advances in microelectronics and computer technology make it easier to collect and store huge amounts of data that comes in with great velocity. These days we can easily gather information and measurements that only a few years ago were too expensive to obtain. Over the next decade, a key factor which will decide whether companies succeed or fall behind will be whether they are able to turn their data into insights and actions.", image: 'https://blog.educacionit.com/wp-content/uploads/2019/04/blog-educacionit-12.jpg', video: 'https://www.youtube.com/watch?v=UY7TYoxI-b4')
 ## Cursos Auth0
-Course.create!(title: "Data Science", company: auth0, category: 'data_science', description: 'The art of uncovering the insights and trends in data has been around since ancient times. The ancient Egyptians used census data to increase efficiency in tax collection and they accurately predicted the flooding of the Nile river every year. Since then, people working in data science have carved out a unique and distinct field for the work they do.' title: 'What is Data Science?', image:'https://images.unsplash.com/photo-1495592822108-9e6261896da8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80', video: 'https://www.youtube.com/watch?v=RUJrAZmrskM')
+Course.create!(company: auth0, category: 'data_science', title: 'What is Data Science?', description: 'The art of uncovering the insights and trends in data has been around since ancient times. The ancient Egyptians used census data to increase efficiency in tax collection and they accurately predicted the flooding of the Nile river every year. Since then, people working in data science have carved out a unique and distinct field for the work they do.', image:'https://images.unsplash.com/photo-1495592822108-9e6261896da8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80', video: 'https://www.youtube.com/watch?v=RUJrAZmrskM')
 
 15.times do
-  Course.create(title: Faker::ProgrammingLanguage.name, company: Company.all.sample, category:[1,2,3].sample)
+  Course.create!(title: Faker::ProgrammingLanguage.name, company: Company.all.sample, category:[1,2,3].sample)
 end
 
+#Questions
+puts "Creating questions:"
 Course.all.each do |course|
   5.times do
-    Question.create(course: course, assignment: Faker::TvShows::TheExpanse.quote, correct_answer: [true, false].sample)
+    Question.create!(course: course, assignment: Faker::TvShows::TheExpanse.quote, correct_answer: [true, false].sample)
   end
 end
+
+
+#User courses
+puts "Creating user courses"
+UserCourses.create!(user: pedro, course: ibm_data_sci, status: 'pending')
+
+
