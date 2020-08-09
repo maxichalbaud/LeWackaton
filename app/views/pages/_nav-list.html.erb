@@ -1,8 +1,20 @@
 <ul class="sidebar-nav">
-  <li class='d-flex justify-content-around align-items-center'><i class="fas fa-columns mr-3"></i><p class="flex-grow-1 p-0 m-0">Dashboard</p></li>
-  <li class='d-flex justify-content-around align-items-center'><i class="fas fa-heart mr-3"></i><p class="flex-grow-1 p-0 m-0">Favoritos</p></li>
-  <li class='d-flex justify-content-around align-items-center'><i class="fas fa-book mr-3"></i><p class="flex-grow-1 p-0 m-0">Mis cursos</p></li>
-  <li class='d-flex justify-content-around align-items-center'><i class="fas fa-cog mr-3"></i><p class="flex-grow-1 p-0 m-0">Configuración</p></li>
+  <li class='d-flex justify-content-around align-items-center'>
+    <%= image_tag "dashboard.svg" %>
+    <%= link_to "Dashboard", users_path, class: 'flex-grow-1 p-0 m-0 ml-1' %>
+  </li>
+  <li class='d-flex justify-content-around align-items-center'>
+    <%= image_tag "favorite.svg" %>
+    <%= link_to "Favoritos", '#', class: 'flex-grow-1 p-0 m-0 ml-1' %>
+  </li>
+  <li class='d-flex justify-content-around align-items-center'>
+    <%= image_tag "course.svg" %>
+    <%= link_to "Mis cursos", users_path, class: 'flex-grow-1 p-0 m-0 ml-1' %>
+  </li>
+  <li class='d-flex justify-content-around align-items-center'>
+    <%= image_tag "settings.svg" %>
+    <%= link_to "Configuración", users_path, class: 'flex-grow-1 p-0 m-0 ml-1' %>
+  </li>
 </ul>
 
 <button class="sign-out btn btn-primary">Cerrar Sesion</button>
