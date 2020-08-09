@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:index, :show]
   def index
-    @courses = Course.where(user_id: @user)
+    @user_courses = UserCourse.where(user_id: @user)
   end
 
   def show

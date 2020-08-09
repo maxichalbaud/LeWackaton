@@ -1,0 +1,34 @@
+.card-course {
+  height: 120px;
+  padding: 20px;
+  position: relative;
+  background-color: #FFFFFF;
+  text-decoration: none;
+
+
+  .img-course {
+    height: 100%;
+    width: 120px;
+
+    img {
+      width: inherit;
+    }
+  }
+  .content-course {
+    h3 {
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    p {
+      font-size: 12px;
+      text-decoration: none;
+    }
+  }
+
+  .status-course {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+}
