@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show]
+  skip_before_action :authenticate_user!
 
   def index
     @courses = Course.order(created_at: :desc)
@@ -13,7 +14,11 @@ class CoursesController < ApplicationController
 
   def show
     @questions = @course.questions
-    @user_course = current_user.user_courses.where(course: @course).first_or_initialize
+    if current_user
+      @user_course = current_user.user_courses.where(course: @course).first_or_initialize
+    else
+      @user_course = UserCourse.new
+    end
   end
 
   private

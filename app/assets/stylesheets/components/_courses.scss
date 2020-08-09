@@ -10,3 +10,25 @@
     border-radius: 12px;
   }
 }
+
+.enrolled {
+  .course-video {
+    display: flex;
+    justify-content: center;
+  }
+
+  li {
+    list-style-type: none;
+    font-weight: 900;
+    font-size: 18px;
+  }
+}
+
+.project {
+  background-color: white;
+  border-radius: 24px;
+  padding: 24px;
+  width: 800px;
+  margin: auto;
+  text-align: center;
+}
