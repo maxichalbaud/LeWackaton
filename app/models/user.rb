@@ -6,5 +6,6 @@ class User < ApplicationRecord
   has_many :user_courses, dependent: :destroy
   has_many :courses, through: :user_courses
   has_many :user_answers
+  has_one_attached :image
   accepts_nested_attributes_for :user_answers
 end
