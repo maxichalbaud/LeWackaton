@@ -20,4 +20,6 @@
   </li>
 </ul>
 
-<button class="sign-out btn btn-light">Cerrar Sesion</button>
+<% if user_signed_in? %>
+  <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "sign-out btn btn-light mt-3" %>
+<% end %>
