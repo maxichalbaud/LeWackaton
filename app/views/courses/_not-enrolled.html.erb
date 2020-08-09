@@ -1,3 +1,10 @@
+<div class="not-enrolled d-flex bg-light p-3">
+  <img src="<%= course.image %>" alt="" class="course-image mr-3">
+  <p class="course-description px-5 mx-3 align-self-center">
+    <%= course.description %>
+  </p>
+</div>
+
 <%= simple_form_for([course, enrollement]) do |f| %>
   <%= f.button :submit, 'Enroll', class: "btn btn-primary" %>
 <% end %>
