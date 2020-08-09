@@ -14,10 +14,15 @@ class UserCoursesController < ApplicationController
   def update
     @course = Course.find(params[:course_id])
     @user_course = UserCourse.find(params[:id])
+
     user_course_params
-    # raise
-    UserAnswer.generate_course_answers(params["user_answers"], current_user.id, @user_course)
-    @user_course.status = 1
+
+    if !params["user_answers"].nil?
+      UserAnswer.generate_course_answers(params["user_answers"], current_user.id, @user_course)
+    end
+
+    @user_course.update(user_course_params[:user_course])
+
     if @user_course.save
       redirect_to @course
     end

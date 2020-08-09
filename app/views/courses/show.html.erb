@@ -1,7 +1,11 @@
 <% if @user_course.nil? %>
   <%= render "not-enrolled", course: @course, enrollement: @enrollement %>
+<% elsif @user_course.finished? %>
+  <%= render "finished-project" %>
+<% elsif @user_course.project_completed? %>
+  <%= render "waiting-for-feedback" %>
 <% elsif @user_course.questions_completed? %>
-  Your result is: <%= @user_course.score.to_f %>
+  <%= render "project-time", user_course: @user_course, course: @course %>
 <% else %>
   <%= render "enrolled", course: @course %>
 <% end %>
