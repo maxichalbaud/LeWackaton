@@ -1,0 +1,29 @@
+.sidebar {
+  width: 230px;
+  background-color: #E2E2E2;
+  height: 100vh;
+  font-family: 'Abel', sans-serif;
+  font-size: 18px;
+  color: rgba(0,0,0,0.9);
+  text-align: center;
+  padding-top: 80px;
+
+  ul.sidebar-nav {
+    margin: auto;
+    padding: 0px 36px 0px 36px;
+
+    li {
+      margin: 12px 0px;
+      text-align: left;
+    }
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+button.sign-out {
+  position: relative;
+  top: 50px;
+}
