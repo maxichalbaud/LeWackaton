@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :user_answers
   has_one_attached :image
   accepts_nested_attributes_for :user_answers
+  has_many :certificates
 end

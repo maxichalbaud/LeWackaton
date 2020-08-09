@@ -1,0 +1,10 @@
+
+<div class="certificate">
+  <h1>UNIAPP</h1>
+  <h3>Este certificado es prueba de que</h3>
+  <h1><%= "#{@certificate.user.first_name} #{@certificate.user.last_name}" %></h1>
+  <h3>ha completado satisfactoriamente todos los módulos de</h3>
+  <h1><%= @certificate.course.title %></h1>
+  <h3>certificado y emitido por</h3>
+  <h1><%= @certificate.course.company.name %></h1>
+</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'certificates/show'
   devise_for :users
   root to: 'pages#home'
 
@@ -11,5 +12,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :show]
   resources :companies, only: [:show]
+  resources :certificates, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
