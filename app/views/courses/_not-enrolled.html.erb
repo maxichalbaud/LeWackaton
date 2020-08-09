@@ -1,17 +1,158 @@
 <div class="not-enrolled">
-  <div class="d-flex bg-light p-3 mb-3">
-    <img src="<%= course.image %>" alt="" class="course-image mr-3">
-    <p class="course-description px-5 mx-3 align-self-center">
-      <%= course.description %>
-    </p>
-  </div>
+  <section class="content">
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark"><%= course.company.name %></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="<%= root_path %>">Home</a></li>
+              <li class="breadcrumb-item active">Cursos</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
 
-<div class="d-flex justify-content-center">
-  <% if user_signed_in? %>
-    <%= simple_form_for([course, enrollement]) do |f| %>
-      <%= f.button :submit, 'Enroll', class: "btn btn-primary" %>
+    <div class="card mb-3" style="width: 100%;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="<%= course.image %>" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h3 class="card-title mb-3 course-title"><strong><%= course.title %></strong></h3>
+            <p class="card-text course-description"><%= course.description %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="mt-5 mb-3 text-dark" style="font-weight: bold;">Plan de estudios</h2>
+
+    <div class="accordion" id="accordionExample">
+
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Module 1: Introduction to Programming for the Cloud
+            </button>
+          </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <ul>
+              <li>Cloud Application Development for Beginners</li>
+              <li>Front-end Development</li>
+              <li>Back-end and server-side Development</li>
+              <li>Programming Languages, Tools and Frameworks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Module 2: HTML5 and CSS3 Overview
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+            <ul>
+              <li>Introduction to HTML and HTML tags</li>
+              <li>HTML5 Management & Support, Scripting</li>
+              <li>CSS: Styling HTML</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Module 3: JavaScript Programming for Web Applications
+            </button>
+          </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+            <ul>
+              <li>JavaScript Overview</li>
+              <li>JavaScript Variables and Control Statements</li>
+              <li>JavaScript Functions and APIs</li>
+              <li>Client-side JavaScript, DOM objects</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingFour">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Module 4: HTML5 Elements
+          </button>
+        </h2>
+      </div>
+      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+        <div class="card-body">
+          <ul>
+            <li>HTML5 tags and structural elements</li>
+            <li>HTML5 Input Elements and data Attributes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingFive">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Module 5: GitHub
+          </button>
+        </h2>
+      </div>
+      <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+        <div class="card-body">
+          <ul>
+            <li>Introduction ot Git and GitHub</li>
+            <li>Repositories and Branches</li>
+            <li>Managing GitHub Projects</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingSix">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            Module 6: Final Assignment
+          </button>
+        </h2>
+      </div>
+      <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="d-flex justify-content-end my-3">
+    <% if user_signed_in? %>
+      <%= simple_form_for([course, enrollement]) do |f| %>
+        <%= f.button :submit, 'Inscripción', class: "btn btn-success px-5" %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
 </div>
