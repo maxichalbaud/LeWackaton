@@ -1,10 +1,10 @@
-<% if @user_course.id.nil? %>
+<% if @user_course && @user_course.id.nil? %>
   <%= render "not-enrolled", course: @course, enrollement: @user_course %>
-<% elsif @user_course.finished? %>
+<% elsif @user_course && @user_course.finished? %>
   <%= render "finished-project" %>
-<% elsif @user_course.project_completed? %>
+<% elsif @user_course && @user_course.project_completed? %>
   <%= render "waiting-for-feedback" %>
-<% elsif @user_course.questions_completed? %>
+<% elsif @user_course && @user_course.questions_completed? %>
   <%= render "project-time", user_course: @user_course, course: @course %>
 <% else %>
   <%= render "enrolled", course: @course %>
