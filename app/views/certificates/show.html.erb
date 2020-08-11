@@ -1,11 +1,8 @@
 
-<div class="certificate">
-  <%= image_tag wicked_pdf_asset_base64('wlxlogo.png'), class: "pdf-image" %>
-  <h1><%= "#{@certificate.user.first_name} #{@certificate.user.last_name}" %></h1>
-  <h3>Ha completado con éxito la formación online en</h3>
-  <h1><%= @certificate.course.title %></h1>
-  <h3>del programa digital de <%= @certificate.course.category.gsub("_", " ").split(" ").map(&:capitalize).join(" ") %> certificado por</h3>
-  <h1><%= @certificate.course.company.name %></h1>
-  <img src="<%= @certificate.course.company.image %>" alt="">
-  <p>Emitido el: <%= @certificate.created_at %></p>
+<div class="certificate" style="background: url(<%= asset_url('certificate.svg') %>)">
+  <%#= image_tag wicked_pdf_asset_base64('certificate.svg') %>
+  <div class="inside">
+
+  <h1><%= @certificate.name %></p>
+  </div>
 </div>

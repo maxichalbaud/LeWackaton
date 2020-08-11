@@ -1,0 +1,3 @@
+<% @certificates.each do |certificate| %>
+  <li><%= link_to certificate.name, certificate_path(certificate, format: :pdf) %></li>
+<% end %>
